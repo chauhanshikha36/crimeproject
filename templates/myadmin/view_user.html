@@ -1,0 +1,66 @@
+{% extends 'myadmin/common/layout.html' %}
+
+{% block content %}
+ <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                   
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold" style="color: #9f280c;">User Table</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>FIRST NAME</th>
+                                            <th>LAST NAME</th>
+                                            <th>USER NAME</th>
+                                            <th>EMAIL ADDRESS</th>
+                                            <th>DOB</th>
+                                            <th>CONTACT NUMBER</th>
+                                            <th>AREA ID</th>
+                                            <th>ADDRESS</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>FIRST NAME</th>
+                                            <th>LAST NAME</th>
+                                            <th>USER NAME</th>
+                                            <th>EMAIL ADDRESS</th>
+                                            <th>DOB</th>
+                                            <th>CONTACT NUMBER</th>
+                                            <th>AREA ID</th>
+                                            <th>ADDRESS</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for row in result %}
+                                        <tr>
+                                            <td>{{row.id}}</td>
+                                            <td>{{row.first_name}}</td>
+                                            <td>{{row.last_name}}</td>
+                                            <td>{{row.username}}</td>
+                                            <td>{{row.email}}</td>
+                                            <td>{{row.profile.dob}}</td>
+                                            <td>{{row.profile.contact}}</td>
+                                            <td>{{row.profile.area.area_name}}</td>
+                                            <td>{{row.profile.address}}</td>
+                                            <td><a href="/myadmin/destroy_user/{{row.id}}">delete</a></td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+{%endblock%}

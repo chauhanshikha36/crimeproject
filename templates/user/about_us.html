@@ -1,0 +1,66 @@
+{% extends 'user/common/layout.html' %}
+{%load static%}
+
+{% block content %}
+<!-- Breadcrumb Wrapper Start -->
+<div class="breadcrumb-wrapper">
+    <div class="container">
+      <div class="breadcrumb-text">
+        <h1>About Us</h1>
+        <div class="inner-breadcrumb">
+          <ul>
+            <li><a href="/user/home">Home</a></li>
+            <li>About Us</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Breadcrumb Wrapper End --> 
+  <!-- Barrister Inner page Wrapper Start -->
+  <div class="inner-page-wrapper aboutus-wrapper">
+    <div class="container">
+      <div class="title"> <span class="title-border-img"><img src="{%static 'user/images/h1-line-img1.png'%}" alt=""></span>
+        <h2>Our Vision and Mission</h2>
+      </div>
+      <div class="row">
+        <div class="col-sm-5 col-md-5">
+              <div class="img"><img src="{%static 'user/images/image4.png'%}" alt="" width="450px"></div>
+          
+        </div>
+        <div class="col-sm-7">
+          <div class="about-text">
+            <h3>Providing Crime News</h3>
+        
+            <p>Our vision is to provide crime information to our users.</p>
+            <p>Our objective is to sve vlueable time of our users.</p>
+            <p>Registered users will post the crimes around their areas and on that basis web-application will give notification via email to that area’s other registered users.</p>
+            <p>people can save their time and get real time notifications for crimes. people can save time of watching local news to know the local areas crimes. People don’t need to read newspaper.</p>
+            <p>Another use of our web-application is user will get information of safety products. Users can view safety products on our web-application.</p>
+            <!-- <ul>
+              <li>Put clients at the heart</li>
+              <li>Partnership</li>
+              <li>Value people</li>
+              <li>Respect</li>
+              <li>Deliver excellence</li>
+              <li>Innovation</li>
+              <li>Work as one team</li>
+              <li>Entrepreneurship</li>
+            </ul> -->
+          </div>
+        </div>
+      </div>
+      <div class="row m-top-50">
+      <div class="col-sm-5 col-md-5 hidden-sm hidden-md hidden-lg">
+          <div class="feature-box one">
+            <div class="shape">
+              <div class="img"><img src="{%static 'user/images/about-img2.jpg'%}" alt=""></div>
+            </div>
+          </div>
+        </div>
+       
+        
+      </div>
+    </div>
+  </div>
+  {%endblock%}

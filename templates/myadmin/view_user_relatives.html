@@ -1,0 +1,62 @@
+{% extends 'myadmin/common/layout.html' %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+   
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold" style="color: #9f280c;">User Relatives Table</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>RELATIVES ID</th>
+                            <th>RELATIVES NAME1</th>
+                            <th>RELATIVES NUMBER1</th>
+                            <th>RELATIVES NAME2</th>
+                            <th>RELATIVES NUMBER2</th>
+                            <th>RELATIVES NAME3</th>
+                            <th>RELATIVES NUMBER3</th>
+                            <th>USER ID</th>
+                           
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>RELATIVES ID</th>
+                            <th>RELATIVES NAME1</th>
+                            <th>RELATIVES NUMBER1</th>
+                            <th>RELATIVES NAME2</th>
+                            <th>RELATIVES NUMBER2</th>
+                            <th>RELATIVES NAME3</th>
+                            <th>RELATIVES NUMBER3</th>
+                            <th>USER ID</th>  
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for p in result %}
+                        <tr>
+                            <td>{{p.id}}</td>
+                            <td>{{p.rel_name1}}</td>
+                            <td>{{p.rel_num1}}</td>
+                            <td>{{p.rel_name2}}</td>
+                            <td>{{p.rel_num2}}</td>
+                            <td>{{p.rel_name3}}</td>
+                            <td>{{p.rel_num3}}</td>
+                            <td>{{p.user_id}}</td>
+                           
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+{%endblock%}

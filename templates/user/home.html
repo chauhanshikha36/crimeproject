@@ -1,0 +1,185 @@
+{% extends 'user/common/layout.html' %}
+{%load static%}
+{% block content %}
+<div class="banner-wrapper">
+  <div id="first-slider" class="carousel fade-carousel slide">
+    <div id="carousel-example-generic" class="carousel slide carousel-fade">
+      <!-- Overlay -->
+      <div class="overlay"></div>
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item slides active">
+          <div class="slide-1"><img src="{% static 'user/images/banner1.jpg'%}" alt="Barrister" /></div>
+          <div class="row">
+            <div class="container">
+              <div class="hero"> <img class="icon" data-animation="animated bounceInLeft"
+                  src="{% static 'user/images/ca.png'%}" alt="">
+
+                <h1 data-animation="animated bounceInLeft" class="">Crime Alert <span>System</span></h1>
+                <a class="btn-one" data-animation="animated bounceInLeft" href="/user/register/">Register</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item slides">
+          <div class="slide-2"><img src="{% static 'user/images/banner2.jpg'%}" alt="Barrister" /></div>
+          <div class="row">
+            <div class="container">
+              <div class="hero"> <img class="icon" data-animation="animated bounceInLeft"
+                  src="{% static 'user/images/ca.png'%}" alt="">
+
+                <h1 data-animation="animated bounceInLeft" class="">Crime Alert <span>System</span></h1>
+                <a class="btn-one" data-animation="animated bounceInLeft" href="javascript:void(0)">Register</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item slides">
+          <div class="slide-3"><img src="{% static 'user/images/banner3.jpg'%}" alt="Barrister" /></div>
+          <div class="hero"> <img class="icon" data-animation="animated bounceInLeft"
+              src="{% static 'user/images/ca.png'%}" alt="">
+
+            <h1 data-animation="animated bounceInLeft" class="">Crime Alert <span>System</span></h1>
+            <a class="btn-one" data-animation="animated bounceInLeft" href="javascript:void(0)">Register</a>
+          </div>
+        </div>
+      </div>
+      <div class="slide-arrows"><a class="left carousel-control" href="#first-slider" data-slide="prev"><span
+            class="transition3s glyphicon glyphicon-chevron-left fa fa-angle-left"></span></a> <a
+          class="right carousel-control" href="#first-slider" data-slide="next"><span
+            class="transition3s glyphicon glyphicon-chevron-right fa fa-angle-right"></span></a></div>
+    </div>
+  </div>
+</div>
+<!-- Banner Wrapper End -->
+
+<!-- Barrister Welcome Wrapper End -->
+<div class="barrister-service-wrapper">
+  <div class="container">
+    <div class="title"> <span class="title-border-img"></span>
+      <h2>Types of crimes</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-sm-6">
+        <div class="service-item">
+          <h3>Child labouring</h3>
+          <p style="text-align: justify;">According to the ILO,there are around 12.9 million Indian children engaged in work between the ages of 7 to 17 years old.When children are employed or doing unpaid work,they are less
+            likely to attend school or attend only intermittingly.</p>
+          <!-- <a href="javascript:void(0)">Read More</a> -->
+
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="service-item">
+          <h3>Fraud</h3>
+          <p style="text-align: justify;">Fraud (or defrauding or scamming) is a crime in which someone tricks somebody
+            else to get unfair or unlawful gain. Frauds are almost always about money, either directly or indirectly.
+            A fraudster or a fraud is the person who commits the fraud.
+          </p>
+          <!-- A fraudster or a fraud is the person who commits the fraud. Fraudulence is the adjective, as in He tried to pass a fraudulent cheque. To defraud someone is to commit a fraud against them. -->
+            <!-- <a href="javascript:void(0)">Read More</a> -->
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <div class="service-item">
+          <h3>Cyber Crime</h3>
+          <p style="text-align: justify;">Cybercrime is a crime that involves a computer and a network. The computer may
+            have been used in the commission of a crime, or it may be the target. Cybercrime may harm someone's security
+            and financial health.Cybercrime may harm someone's securityand financial health.</p>
+            <!-- <div class = "post_body">
+              {{ post.body|safe|truncatewords:"50"|linebreaks }}
+              <a href="{{ url_for_full_content }}">Read More</a> -->
+          </div>
+          <!-- <a href="javascript:void(0)">Read More</a> -->
+          <!-- <div class="icon-box"><img src="{% static 'user/images/service-item-icon6.png'%}" alt=""></div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Barrister Welcome Wrapper End -->
+
+
+<!-- How Does Wrapper Start -->
+<div class="how-does-wrapper">
+  <div class="container">
+    <div class="title"> <span class="title-border-img"></span>
+      <h2>Types of Crimes</h2>
+    </div>
+    <div class="row">
+      <div id="testimonials" class="owl-carousel owl-theme">
+        <div class="item">
+          <div class="tes-wrapper">
+            <h3> Crimes against an individual</h3>
+            <p style="text-align: justify;">The most severe crime a person can commit is to hurt a fellow human being.
+                 if you try to rob someone of any of his basic rights, you are liable to severe punishment. 
+                 When it comes to personal crimes, the situation in America is very unevenly distributed.</p>
+            <div class="shape">1</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="tes-wrapper">
+            <h3>  Organized Crime</h3>
+             <p style="text-align:justify;">This crime is committed by a group of people who exploit illegal sales and services of goods. 
+              Where once this was limited to Mafia and gangsters, it has reformed into something very structured. Most of these criminals involve business tycoons who use their wealth and power to lobby different people.</p>
+            <div class="shape">2</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="tes-wrapper">
+            <h3>White-Collar Crime</h3>
+            <p style="text-align:justify;">One of the biggest woes of Charges ranging from embezzling, insider trading, tax evasion, and violation income tax law, these upper management white-collar people of higher status make a huge part of criminals.
+               As these criminals do not affect the general public, these crimes are not investigated to a greater extent.</p>
+            <div class="shape">3</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="tes-wrapper">
+            <h3>Crimes against Morality</h3>
+            <p style="text-align:justify;">These crimes are also known as a victimless crime as they do not cause harm to the other person, 
+              but they are seen as morally bad.However they are still prosecuted under the law as crimes and there can be severe punishments. 
+              They include prostitution, gambling.</p>
+            <div class="shape">4</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="tes-wrapper">
+            <h3>Inchoate Crimes</h3>
+            <p style="text-align:justify;">These crimes are regarded as incomplete crimes.
+               They are acts which were begun with the intent of causing another person some sort of harm but were left hanging in the middle. 
+               This includes when a person has taken substantial steps to formulate, begin, and perform a crime,
+               but he lacked resource or help to complete it.</p>
+            <div class="shape">5</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- How Does Wrapper end -->
+<!-- Tell us Wrapper Start -->
+<!-- <div class="barrister-tell-us-about-wrapper">
+    <div class="container"><div class="title"> <span class="title-border-img"></span>
+      <h2>Get register</h2>
+      <a class="btn-one" href="javascript:void(0)">Register</a> </div></div>
+  </div> -->
+<!-- Tell us Wrapper end -->
+
+<!-- Barrister Our Team Wrapper end -->
+
+<!-- Barrister CTA Wrapper end -->
+<div class="barrister-cta-wrapper">
+  <div class="container">
+     {% if request.user.is_authenticated %}
+    <div class="row">
+
+      <div class="col-sm-8 col-md-9">
+        <h3>We Provide real time crime information!</h3>
+      </div>
+      <div class="col-sm-4 col-md-3"> <a href="/user/view_post/" class="btn-one pull-right"> View Post</a> </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{%endblock%}

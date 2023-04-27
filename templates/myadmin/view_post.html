@@ -1,0 +1,63 @@
+{% extends 'myadmin/common/layout.html' %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+   
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold " style="color: #9f280c;">Post Table</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Post ID</th>
+                            <th>Date</th>
+                            <th>Post Name</th>
+                            <th>Post</th>
+                            <th>Category ID</th>
+                            <th>description</th>
+                            <th>User ID</th>
+                            <th>Delete</th>
+                           
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Post ID</th>
+                            <th>Date</th>
+                            <th>Post Name</th>
+                            <th>Post</th>
+                            <th>Category ID</th>
+                            <th>description</th>
+                            <th>User ID</th>
+                            <th>Delete</th>
+                            
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        {% for p in posts %}
+                        <tr>
+                            <td>{{p.id}}</td>
+                            <td>{{p.p_date}}</td>
+                            <td>{{p.file_name}}</td>
+                            <td><img src="/media/post/{{p.file_name}}" alt="" height="50px" width="50px"></td>
+                            <td>{{p.category_id}}</td>
+                            <td>{{p.post_description}}</td>
+                            <td>{{p.user_id}}</td>
+                            <td><a href="/myadmin/destroy_post1/{{p.post_id}}">delete</a></td>
+                           
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+{%endblock%}

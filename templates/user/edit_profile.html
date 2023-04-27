@@ -1,0 +1,130 @@
+{% extends 'user/common/layout.html' %}
+{%load static%}
+
+{% block content %}
+    <div class="container" >
+        <div class="row">
+        
+         <div class="row">
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li {% if message.tags %} style="color:#9f280c " class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+          <div class="col-lg-12">
+          <div class="p-5">
+              <div class="text-center">
+                  <h1 class=" text-gray-900 mb-4">Edit Information</h1>
+              </div>
+              <form class="user" method="post" action="/user/update_profile/{{result.id}}">
+              {% csrf_token %}
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" id="fname" name="fname" value="{{result.user.first_name}}" 
+                        placeholder="First name"  required>
+                </div>
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" id="lname" name="lname" value="{{result.user.last_name}}" 
+                        placeholder="last name" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control form-control-user" id="username" name="username" value="{{result.user.username}}" 
+                    placeholder="User name" required disabled>
+            </div>
+              <div class="form-group">
+                  <input type="email" class="form-control form-control-user" id="email" name="email"  value="{{result.user.email}}" 
+                      placeholder="Email Address" required>
+              </div>
+              <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                      <input type="date" class="form-control form-control-user" id="dob" name="dob"  value="{{result.user.profile.dob}}" 
+                          placeholder="Date Of Birth" required>
+                  </div>
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                      <input type="text" class="form-control form-control-user" id="contact" name="contact"  value="{{result.user.profile.contact}}" 
+                          placeholder="Contact Number" required  pattern="[789][0-9]{9}">
+                  </div>
+              </div>
+              <div class="form-group row">
+                 
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                      <label for="area"name="area" id="area">  </label>
+                      <select name="area" id="area" class="form-control form-control-user" required>
+                           <option value="">--Select Area--</option>
+                                    {% for a in area %}
+                                        <option value="{{a.id}}" {% if result.area_id == a.id %} selected {% endif %}>{{a.area_name}}</option>
+                                    {% endfor %}
+                      </select>
+                  </div>
+                   <div class="col-sm-6 mb-3 mb-sm-0 ">
+    
+                  </div>
+              </div>
+              
+              <div class="form-group row">
+                  <div class="col-sm-12 mb-3 mb-sm-0">
+                      <textarea name="address" id="address" cols="127" class="form-control form-control-user" placeholder="Address" required>{{result.user.profile.address}}</textarea>
+                  </div>
+              </div>
+          <!--   <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0 ">
+                    <input type="text" class="form-control form-control-user"
+                          id="rel_name1" name="rel_name1" placeholder="Relative's name"  value="{{relatives.rel_name1}}"  required>
+                </div>
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user"
+                          id="rel_num1" name="rel_num1" placeholder="Relative's number"  value="{{relatives.rel_num1}}"  required  pattern="[789][0-9]{9}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0 ">
+                    <input type="text" class="form-control form-control-user"
+                          id="rel_name2" name="rel_name2" placeholder="Relative's name" value="{{relatives.rel_name2}}"  required>
+                </div>
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user"
+                          id="rel_num2" name="rel_num2" placeholder="Relative's number" value="{{relatives.rel_num2}}" required  pattern="[789][0-9]{9}" >
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0 ">
+                    <input type="text" class="form-control form-control-user"
+                          id="rel_name3" name="rel_name3" placeholder="Relative's name" value="{{relatives.rel_name3}}"  required>
+                </div>
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user"
+                          id="rel_num3" name="rel_num3" placeholder="Relative's number" value="{{relatives.rel_num3}}"  required  pattern="[789][0-9]{9}">
+                </div>
+            </div>
+            -->
+              <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                      <input type="password" class="form-control form-control-user"
+                          id="password"  name="password" placeholder=" Current Password" required pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\S+$).{6,}$">
+                  </div>
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                      <input type="password" class="form-control form-control-user"
+                      id="cpassword"  name="cpassword" placeholder="Confirm Password" required pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\S+$).{6,}$">
+                  </div>
+              </div>
+              <center>
+                <div class="text-md-left col-md-12">
+                    <button type="submit"  name="submit" id="submit" class="btn-one" style="background-color: #9f280c; padding: 10px; margin-bottom:20px">Update</button>   
+                  </div>    
+              </center>
+             
+          </form>
+              
+          </div>
+      </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+    
+    </div>
+
+
+{%endblock%}

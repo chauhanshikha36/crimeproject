@@ -1,0 +1,37 @@
+{% extends 'myadmin/common/layout.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+    <div class="p-5">
+        <div class="text-center">
+            <h1 class="h4 text-gray-900 mb-4">Add Area</h1>
+        </div>
+        <form class="user"method="post" action="/myadmin/update_area/{{result.id}}">
+            {% csrf_token%}
+            <div class="form-group row">
+                <div class="col-sm-12 mb-3 mb-sm-0">
+                    <input type="text" class="form-control " id="area_name" name="area_name"
+                        placeholder="Area name"value="{{result.area_name}}">
+                </div>
+            
+                <div class="col-sm-12 mb-3 mb-sm-0">
+                    <label for="Category" >  </label>
+                    <select name="city_id" id="city_id" class="form-control " placeholder="City">
+                        
+                         <option value="">--Select University--</option>
+					     {% for c in city %}
+						  <option value="{{c.id}}" {% if result.city_id == c.id %} selected {% endif %}>{{c.city_name}}</option>
+					     {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <input  class="btn  btn-user btn-block" type="submit" id="submit" name="submit" value="Update Area" style="background-color: #9f280c;">
+            
+            <!-- <a class="btn btn-primary  btn-block">
+                Add Area
+            </a>     -->
+        </form>    
+    </div>
+</div>
+</div>
+{%endblock%}

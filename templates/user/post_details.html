@@ -1,0 +1,127 @@
+{% extends 'user/common/layout.html' %}
+{%load static%}
+
+{% block content %}
+<!-- Breadcrumb Wrapper Start -->
+<div class="breadcrumb-wrapper">
+    <div class="container">
+      <div class="breadcrumb-text">
+        <h1>Post Details</h1>
+        <div class="inner-breadcrumb">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>Post</li>
+            <li>Post Details</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Breadcrumb Wrapper End --> 
+  <!-- Barrister Inner page Wrapper Start -->
+  <div class="inner-page-wrapper blog-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8 col-xs-12"> 
+          <!-- Blog box start -->
+          <div class="thumbnail blog-box clearfix"> <img src="/media/post/{{result.file_name}}" alt="" class="img-responsive"> 
+            <!-- detail -->
+            <div class="caption detail"> 
+              <!--Main title -->
+              <h1><a href="#">{{result.category.name}}</a></h1>
+              <!-- Post meta -->
+              <div class="post-meta"> 
+                <span><a href="/user/show_profile/{{result.user_id}}"><i class="fa fa-user"></i>{{result.user.first_name}} {{result.user.last_name}}</a></span>
+                 <span><a><i class="fa fa-clock-o"></i> {{result.p_date}}</a></span>  
+                 <span><a href="#"><i class="fa fa-commenting-o"></i>{{total}} Comment</a></span>
+                 <span><a href="/user/store_report/{{result.id}}"><i class="fa fa-"></i>RAISE ISSUE</a></span>
+                  </div>
+
+              <!-- paragraph -->
+              <p>{{result.post_description}}</p>
+              
+              <div class="row clearfix t-s">
+                <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">    
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12"> 
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Blog box end --> 
+          
+          <!-- Comments section start -->
+          <div class="comments-section sidebar-widget"> 
+            <!-- Main Title 2 -->
+            <h2>Comments Section</h2>
+          <!--   <ul class="comments">
+              <li>
+                <div class="comment">
+
+                  <div class="comment-content">
+                    <div class="comment-meta">
+                      <div class="comment-meta-author"> Jane Doe </div>
+                      <div class="comment-meta-date"> <span class="hidden-xs">8:42 PM 3/3/2017</span> </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="comment-body">
+                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer </p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul> -->
+            {% for row in com %}
+            <ul class="comments">
+              <li>
+                <div class="comment">
+                  
+                  <div class="comment-content">
+                    <div class="comment-meta">
+                      <div class="comment-meta-author"> {{row.user.first_name}} {{row.user.last_name}}</div>
+                      <div class="comment-meta-date"> <span class="hidden-xs">{{row.date}}</span> </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="comment-body">
+                      <p>{{row.msg}} </p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            {% endfor %}
+          </div>
+          <!-- Comments section end --> 
+        </div>
+        <div class="col-lg-4 col-md-4 col-xs-12">
+          <div class="sidebar"> 
+               <!-- Contact form start -->
+          <div class="contact-form sidebar-widget last">
+            <div class="main-title-2">
+              <h2> Leave a Comment</h2>
+            </div>
+            <form id="contact_form" method="POST" action="/user/store_comment/{{result.id}}">
+              <div class="row">
+                
+                <div class="col-sm-12">
+                  <div class="form-group message">
+                    {% csrf_token %}
+                    <textarea class="input-text" id="msg" name="msg" placeholder="Write message" required></textarea>
+                  </div>
+                </div>
+                <div class="col-sm-5 col-md-5 col-lg-4">
+                  <div class="form-group send-btn">
+                    <button type="submit" id="submit" name="submit" class="btn-one">Send Message</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- Contact form end --> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Barrister Inner page Wrapper End --> 
+{%endblock%}

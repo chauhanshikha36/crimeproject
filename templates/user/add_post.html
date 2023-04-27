@@ -1,0 +1,62 @@
+{% extends 'user/common/layout.html' %}
+{%load static%}
+
+{% block content %}
+<br>
+
+<div class="container" >
+    <div class="row">
+    
+     <div class="row" >
+       <div class="col-lg-4"></div>
+      <div class="col-lg-4" style="margin-top: 40px; margin-bottom: 40px; padding-bottom: 20px; background-color: lightgray;">
+      <div class="p-5">
+          <div class="text-center">
+              <h1 class=" mb-4">Add Post</h1>
+          </div>
+          <form class="user" method="post" action="/user/store_post/" enctype="multipart/form-data">
+            {%csrf_token%}
+            <div class="form-group row">
+                <div class="col-sm-12 mb-3 mb-sm-0">
+                    <input type="file" class="form-control form-control-user" id="f" name="f" placeholder="Add post" required>
+                </div>
+            </div>
+              <div class="form-group row">
+                  <div class="col-sm-12 mb-3 mb-sm-0">
+                      <textarea id="post_description" class="form-control form-control-user" name="post_description" placeholder="Description" required  > </textarea>
+                  </div>
+              </div>
+              <div class="form-group row">
+              <div class="col-sm-12 mb-3 mb-sm-0 box">
+                <label for="Category" class="box" name="category" id="category">  </label>
+                <select name="category" id="category" class="form-control form-control-user" placeholder="Category" class="box" required>
+                   
+                  <option value="">--Select category--</option>
+                    {% for c in categories%}
+                      <option value="{{c.id}}">{{c.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            </div>
+              <center>
+                <div class="text-md-left col-md-12">
+                  <button type="submit"  id="submit" name="submit" class="btn-one " style="background-color: #9f280c; padding: 10px;">Add Post</button>
+                </div>
+
+              </center>
+           
+              
+          </form>
+          
+      </div>
+  </div>
+  </div>
+</div>
+<!-- /.container-fluid -->
+
+</div>
+
+<!-- /.container-fluid -->
+
+
+{%endblock%}

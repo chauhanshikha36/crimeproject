@@ -1,0 +1,50 @@
+{%load static%}
+<div class="footer-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md-4">
+          <img src="{%static 'user/images/logo.png'%}" alt="" data-popupalt-original-title="null" title="" height= '60px'>
+         <ul class="social-icons">
+           <li><a href="javascript:void(0)"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+           <li><a href="javascript:void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+           <li><a href="javascript:void(0)"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+           <li><a href="javascript:void(0)"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+           <li><a href="javascript:void(0)"> <i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+         </ul>
+       </div>
+       <div class="col-sm-6 col-md-5">
+         <div class="bullet-section">
+           <h2><img src="{%static 'user/images/link-icon.png'%}" alt=""/>ADDITIONAL RESEARCH LINKS</h2>
+           <ul >
+             <li><a href="/user/home/">HOME</a></li>
+             <li><a href="/user/about_us/">ABOUT US</a></li>
+             <li><a href="/user/security/">SECURITY</a></li>
+             <li><a href="/user/contact_us/">CONTACT US</a></li>
+           </ul>
+         </div>
+       </div>
+       <div class="col-sm-12 col-md-3">
+         <div class="form-section">
+           <h2><img src="{%static 'user/images/contact-icon.png'%}" alt=""/>QUICK CONTACT</h2>
+           <form method="post" action="/user/store_Quickcontact/">
+             {%csrf_token%}
+             <div class="form-group">
+               <input name="email" id="email" placeholder="Your E-mail Address" type="text">
+             </div>
+             <div class="form-group">
+               <input name="message"id="message" placeholder="Your Message." type="text">
+             </div>
+             <button type="submit" class="btn">SEND</button>
+           </form>
+         </div>
+       </div>
+     </div>
+   </div>
+  </div>
+  <!-- Barrister Footer Wrapper end --> 
+  <!-- Copyright Start -->
+  <div class="copyright-wrapper">
+    <div class="container">
+      <p>&copy; Copyright 2022,Crime Alert | All Rights Reserved.</p>
+    </div>
+  </div>

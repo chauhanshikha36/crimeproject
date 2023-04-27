@@ -1,0 +1,41 @@
+{% extends 'myadmin/common/layout.html' %}
+{% block content %}
+ <div class="row">
+                        <div class="col-lg-12">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Add SecurityProduct</h1>
+                            </div>
+                            <form class="user" method="post" action="/myadmin/update_product/{{result.id}}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-group row">
+                                    <div class="col-sm-12 mb-3 mb-sm-0">
+                                        
+                                        <input type="text" class="form-control form-control-user" id="pro_name" name="pro_name" value="{{result.pro_name}}"
+                                            placeholder="Product Name">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12 mb-3 mb-sm-0">
+                                        <textarea id="pro_des" name="pro_des"  class="form-control form-control-user"  placeholder="Product Description" >{{result.pro_des}}</textarea>
+                                        
+                            
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12 mb-3 mb-sm-0">
+                                        <input type="file" class="form-control form-control-user"  id="images" name="images"
+                                            placeholder="Upload Product Image" >
+                                            <img src="/media/product/{{result.img_name}}" alt="" height="100px" width="70px">
+                                    </div>
+                                </div>
+                                <input class="btn  btn-user btn-block"type="submit" id="submit" name="submit" value="Update SecurityProduct" style="background-color: #9f280c;">
+                                
+                            
+                                
+                            </form>
+                            
+                        </div>
+                    </div>
+                    </div>
+{%endblock%}

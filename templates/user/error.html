@@ -1,0 +1,29 @@
+{% extends 'user/common/layout.html' %}
+{%load static%}
+
+{% block content %}
+<div class="breadcrumb-wrapper">
+    <div class="container">
+      <div class="breadcrumb-text">
+        <h1>404</h1>
+        <div class="inner-breadcrumb">
+          <ul>
+            <li><a href="/user/home">Home</a></li>
+            <li>Pages</li>
+            <li>404</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Breadcrumb Wrapper End --> 
+  <!-- Barrister Inner page Wrapper Start -->
+  <div class="inner-page-wrapper oops-wrapper">
+    <div class="container">
+        <h1 class="page-404"><span>4</span><span>0</span><span>4</span></h1>
+      <h2>Page not Found</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+      <a class="btn-one" href="/user/home">Go to Home</a>
+    </div>
+  </div>
+  {%endblock%}

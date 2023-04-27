@@ -1,0 +1,55 @@
+{% extends 'myadmin/common/layout.html' %}
+
+{% block content %}
+  <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold " style="color: #9f280c;">SecurityProduct Table</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Description</th>
+                                            <th>Image name</th>
+                                            <th>Image</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Description</th>
+                                            <th>Image name</th>
+                                            <th>Image</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for row in result %}
+                                        <tr>
+                                            <td>{{row.id}}</td>
+                                            <td>{{row.pro_name}}</td>
+                                            <th>{{row.pro_des}}</th>
+                                            <td>{{row.img_name}}</td>
+                                            <td><img src="/media/product/{{row.img_name}}" alt="" height="100px" width="70px"></td>
+                                            <td><a href="/myadmin/edit_product/{{row.id}}">Edit</a></td>
+                                            <td><a href="/myadmin/destroy_product/{{row.id}}">Delete</a></td>
+                                           
+                                        </tr>
+                                    {% endfor %}
+                                       
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+{%endblock%}

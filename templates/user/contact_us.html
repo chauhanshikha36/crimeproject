@@ -1,0 +1,124 @@
+{% extends 'user/common/layout.html' %}
+{%load static%}
+
+{% block content %}
+<!-- Breadcrumb Wrapper Start -->
+<div class="breadcrumb-wrapper">
+    <div class="container">
+      <div class="breadcrumb-text">
+        <h1>Contact Us</h1>
+        <div class="inner-breadcrumb">
+          <ul>
+            <li><a href="/user/home">Home</a></li>
+            <li>Contact Us</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Breadcrumb Wrapper End --> 
+  <!-- Barrister Inner page Wrapper Start -->
+  <div class="inner-page-wrapper contact-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-7">
+        <div class="address">
+          <div class="add"><i><img src="{%static 'user/images/map-icon.png'%}" alt=""></i>
+            <h3>CONTACT INFO <span>Ahmedabad</span> </h3>
+            </h3>
+          </div>
+          <div class="add m-left-40"><i><img src="{%static 'user/images/phone-icon.png'%}" alt=""></i>
+            <h3>Phone <span>(012) 345-6789, (123) 456-7890</span> </h3>
+            </h3>
+          </div>
+          <div class="add m-left-80 last"><i><img src="{%static 'user/images/email-icon.png'%}" alt=""></i>
+            <h3>CONTACT INFO <span><a href="mailto:info@sbtechnosoft.com">crimealert@gmail.com</a></span> </h3>
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <div class="contact-img"> <img src="{%static 'user/images/contactimg.png'%}" height="400px" alt=""> </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Barrister Inner page Wrapper End --> 
+  <!-- Barrister Map Wrapper Start -->
+  <div class="map-wrapper">
+    <div class="container">
+     <div class="row">
+
+      <div class="col-sm-6">
+      <div class="row">
+        <form class="contact-us-form"  method="post" action="/user/store_contact/">
+          {%csrf_token%}
+          <div class="form-group col-md-12 input-error">
+            <h1 style="color: rgb(242, 234, 219);">Give Your Inquiry</h1>
+            <input name="name" id="name" class="form-control required" placeholder="Full Name" type="text"required>
+          </div>
+          <div class="form-group col-md-12 input-error">
+            <input name="email" id="email" class="form-control required" placeholder="Email address" type="email" required>
+          </div>
+          <div class="form-group col-md-12 input-error">
+            <textarea name="message" id="message" class="form-control required" placeholder="Your Question?" required></textarea>
+          </div>
+          <div class="text-md-left col-md-12">
+            <button type="submit" class="btn-one">Send Message</button>
+          </div>
+        </form> 
+      </div>
+        </div>
+
+       <div class="col-sm-6">
+        {% if request.user.is_authenticated %}
+           <h1 style="color: rgb(242, 234, 219);"> Give Your Feedback Here </h1>
+            
+                <div class="row">
+                  <form class="contact-us-form"  method="post" action="/user/store_feedback/">
+                    {%csrf_token%}
+                    <div class="form-group col-md-12 input-error">
+                      <label for="Category" >  </label>
+                      <select name="rating" id="rating" class="form-control " placeholder="Ratings" required>
+                       
+                                      <option value="" required>--Select Ratings--</option>
+                                      
+                                          <option value="1">*</option>
+                                          <option value="2">**</option>
+                                          <option value="3">***</option>
+                                          <option value="4">****</option>
+                                          <option value="5">*****</option>
+                                      
+                      </select>
+                  </div>
+                 
+                    <div class="form-group col-md-12 input-error" required>
+                      <textarea name="message" id="message" class="form-control required" placeholder="Your Feedback"required></textarea>
+                    </div>
+                   
+                    <div class="text-md-left col-md-12">
+                      <button type="submit" class="btn-one">Send Feedback</button>
+                    </div>
+                  </form> 
+          </div>
+            {% endif %}
+        </div>
+    </div></div>
+  </div>
+  <!-- Barrister Map Wrapper End --> 
+  <!-- Barrister CTA Wrapper end -->
+  <div class="barrister-cta-wrapper">
+    <div class="container">
+      {% if request.user.is_authenticated %}
+      <div class="row">
+  
+        <div class="col-sm-8 col-md-9">
+          <h3>We Provide real time crime information!</h3>
+        </div>
+        <div class="col-sm-4 col-md-3"> <a href="/user/view_post/" class="btn-one pull-right"> View Post</a> </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  <!-- Barrister CTA Wrapper end --> 
+{%endblock%}

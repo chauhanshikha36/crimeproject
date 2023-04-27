@@ -1,0 +1,42 @@
+{% extends 'myadmin/common/layout.html' %}
+
+{% block content %}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold " style="color: #9f280c;">City Table</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>City ID</th>
+                        <th>City Name</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>City ID</th>
+                        <th>City Name</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {% for row in result %}
+                    <tr>
+                        <td>{{row.id}}</td>
+                        <td>{{row.city_name}}</td>
+                        <td><a href="/myadmin/edit_city/{{row.id}}">Edit</a></td>
+                        <td><a href="/myadmin/destroy_city/{{row.id}}">Delete</a></td>
+                       
+                    </tr>
+                    {% endfor %}   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{%endblock%}

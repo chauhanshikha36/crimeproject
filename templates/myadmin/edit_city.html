@@ -1,0 +1,25 @@
+{% extends 'myadmin/common/layout.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+    <div class="p-5">
+        <div class="text-center">
+            <h1 class="h4 text-gray-900 mb-4">Add City</h1>
+        </div>
+        <form class="user" method="post" action="/myadmin/update_city/{{result.id}}">
+            {% csrf_token%}
+            <div class="form-group row">
+                <div class="col-sm-12 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" id="city_name" name="city_name"
+                        placeholder="City name" value="{{result.city_name}}">
+                </div>
+            </div>
+            <input class="btn  btn-user btn-block"type="submit" id="submit" name="submit" value="Update City" style="background-color: #9f280c;">
+            
+        </form>
+        
+    </div>
+</div>
+</div>
+{%endblock%}
